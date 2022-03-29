@@ -41,7 +41,7 @@ window.onload = () => {
   const data = null;
   let word = null;
 
-  const getNewWord = () => {
+  function getNewWord() {
     const request = new XMLHttpRequest();
     request.withCredentials = true;
     request.addEventListener("readystatechange", function () {
@@ -59,7 +59,7 @@ window.onload = () => {
       "3a0a5d475dmshabbcbfe953aa101p12e324jsn22f52d67a70a"
     );
     request.send(data);
-  };
+  }
 
   getNewWord();
 
@@ -75,14 +75,12 @@ window.onload = () => {
     }
   });
 
-  const checkIfWordExists = (word) => {
+  const checkWordExists = (word) => {
     const request = new XMLHttpRequest();
     request.withCredentials = false;
     request.addEventListener("readystatechange", function () {
       if (this.readyState === this.DONE) {
-        if (this.status == 200) {
-          console.log("The word exists");
-        } else {
+        if (this.status != 200) {
           alert(
             "The guess you entered is not a word. Please enter a different guess."
           );
@@ -97,5 +95,42 @@ window.onload = () => {
     request.send(data);
   };
 
-  checkIfWordExists(word);
+  checkWordExists(word);
+
+  let guessButton1 = document.getElementById("guessButton1");
+  guessButton1.onclick = function (event) {
+    let guess = document.getElementById("guess1").value.toUpperCase();
+
+    checkWordExists(guess.toLowerCase());
+
+    let guessArray = guess.split("");
+    let wordArray = word.split("");
+    if (guess == word) {
+      console.log("Congratulations! You guessed the word!");
+    } else {
+      for (let i = 0; i < 5; i++) {
+        if (guessArray[i].toUpperCase() == wordArray[i]) {
+          let letter = document.getElementById(guessArray[i].toUpperCase());
+          letter.setAttribute(
+            "class",
+            "positionNextTo letter correctPlacement"
+          );
+        } else {
+          for (let j = 0; j < 5; j++) {
+            if (guessArray[i].toUpperCase() == wordArray[j]) {
+              let letter = document.getElementById(guessArray[i].toUpperCase());
+              letter.setAttribute(
+                "class",
+                "positionNextTo letter correctLetter"
+              );
+            } else {
+              let letter = document.getElementById(guessArray[i].toUpperCase());
+              letter.setAttribute("class", "positionNextTo letter used");
+            }
+          }
+        }
+      }
+    }
+    event.preventDefault();
+  };
 };
