@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Wordle</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <button id="debugModeButton">Debug Mode: Off</button>
+    <p id="correctAnswer"></p>
+
+    <h1>Wordle</h1>
+
+    <form>
+        <label for="guess1">Guess 1: </label>
+        <input type="text" id="guess1" name="guess1" maxlength="5" value="">
+        <button type="button" id="guessButton1">Submit</button>
+    </form>
+
+    <h2>Letter List</h2>
+    <div id="letterList"></div><br /><br />
+    <h3>Legend</h3>
+    <div class="positionNextTo"><span class="letter default">A</span> - Unused Letter</div>
+    <div class="positionNextTo"><span class="letter used">B</span> - Used Letter</div>
+    <div class="positionNextTo"><span class="letter correctLetter">C</span> - Correct Letter in Wrong Place</div>
+    <div class="positionNextTo"><span class="letter correctPlacement">D</span> - Correct Letter in Correct Place</div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+* {
+    background-color: black;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.positionNextTo {
+  margin: 0;
+  display:inline;
+  float:left;
+ }
+
+.letter {
+    color:white;
+    max-width: fit-content;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;
+}
+
+.default {
+    color:white;
+    background-color: #808384;
+}
+
+.used {
+    color:#808384;
+    background-color: #3a3a3c;
+}
+
+.correctLetter {
+    color:white;
+    background-color: #b49f3a;
+}
+
+.correctPlacement {
+    color:white;
+    background-color: #548d4e;
+}
