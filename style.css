@@ -45,3 +45,23 @@ form {
 input {
     margin-right: 10px;
 }
+
+#winnerText {
+    color: #548d4e;
+}
+
+#winnerText {
+  padding: 40px;
+  text-align: center;
+  background: #548d4e;
+  color: white;
+  font-size: 25px; 
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+  display: block;
+}

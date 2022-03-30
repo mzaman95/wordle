@@ -109,11 +109,14 @@ window.onload = () => {
 
   async function assessGuess(guess) {
     const result = await checkWordExists(guess);
-    console.log(result);
     let guessArray = guess.split("");
     let wordArray = word.split("");
-    if (guess == word) {
+    //console.log(guess);
+    //console.log(word);
+    if (guess.toUpperCase() == word) {
       console.log("Congratulations! You guessed the word!");
+      let winnerText = document.getElementById("winnerText");
+      winnerText.setAttribute("class", "show");
     } else {
       for (let i = 0; i < 5; i++) {
         if (guessArray[i].toUpperCase() == wordArray[i]) {
@@ -139,15 +142,6 @@ window.onload = () => {
       }
     }
   }
-
-  /*
-  let guessButton1 = document.getElementById("guessButton1");
-  guessButton1.onclick = function (event) {
-    let guess = document.getElementById("guess1").value.toUpperCase();
-    assessGuess(guess.toLowerCase());
-    event.preventDefault();
-  };
-  */
 
   guessesArray = [];
   let guessessArrayDiv = document.getElementById("guessesArray");
