@@ -1,4 +1,10 @@
 window.onload = () => {
+  let newGameBtn = document.getElementById("newGame");
+  newGameBtn.onclick = function (event) {
+    window.location.reload();
+    event.preventDefault();
+  };
+
   const letters = [
     "A",
     "B",
@@ -168,6 +174,11 @@ window.onload = () => {
     guessButton.setAttribute("id", "guessButton" + i);
     guessButton.innerHTML = "Submit";
     guessForm.appendChild(guessButton);
+
+    guessButton.onclick = function (event) {
+      assessGuess(guessInput.value.toLowerCase());
+      event.preventDefault();
+    };
 
     let br = document.createElement("span");
     guessForm.appendChild(br);
