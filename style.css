@@ -37,3 +37,11 @@
     color:white;
     background-color: #548d4e;
 }
+
+form {
+    margin: 20px;
+}
+
+input {
+    margin-right: 10px;
+}

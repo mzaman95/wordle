@@ -42,6 +42,7 @@ window.onload = () => {
   let word = null;
 
   function getNewWord() {
+    /*
     const request = new XMLHttpRequest();
     request.withCredentials = true;
     request.addEventListener("readystatechange", function () {
@@ -59,6 +60,9 @@ window.onload = () => {
       "3a0a5d475dmshabbcbfe953aa101p12e324jsn22f52d67a70a"
     );
     request.send(data);
+    */
+    // TODO: delete below later:
+    word = "light".toUpperCase();
   }
 
   getNewWord();
@@ -75,7 +79,7 @@ window.onload = () => {
     }
   });
 
-  const checkWordExists = (word) => {
+  function checkWordExists(word) {
     const request = new XMLHttpRequest();
     request.withCredentials = false;
     request.addEventListener("readystatechange", function () {
@@ -93,16 +97,13 @@ window.onload = () => {
       "/definitions?limit=200&includeRelated=false&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
     request.open("GET", url);
     request.send(data);
-  };
+  }
 
-  checkWordExists(word);
+  console.log(word);
 
-  let guessButton1 = document.getElementById("guessButton1");
-  guessButton1.onclick = function (event) {
-    let guess = document.getElementById("guess1").value.toUpperCase();
-
-    checkWordExists(guess.toLowerCase());
-
+  async function assessGuess(guess) {
+    const result = await checkWordExists(guess);
+    console.log(result);
     let guessArray = guess.split("");
     let wordArray = word.split("");
     if (guess == word) {
@@ -131,6 +132,44 @@ window.onload = () => {
         }
       }
     }
+  }
+
+  /*
+  let guessButton1 = document.getElementById("guessButton1");
+  guessButton1.onclick = function (event) {
+    let guess = document.getElementById("guess1").value.toUpperCase();
+    assessGuess(guess.toLowerCase());
     event.preventDefault();
   };
+  */
+
+  guessesArray = [];
+  let guessessArrayDiv = document.getElementById("guessesArray");
+  for (let i = 0; i < 6; i++) {
+    let guessForm = document.createElement("form");
+    guessForm.setAttribute("id", "guessForm" + i);
+    guessessArrayDiv.appendChild(guessForm);
+
+    let guessLabel = document.createElement("label");
+    guessLabel.setAttribute("for", "guess" + i);
+    guessLabel.innerHTML = "Guess " + (i + 1) + ": ";
+    guessForm.appendChild(guessLabel);
+
+    let guessInput = document.createElement("input");
+    guessInput.setAttribute("type", "text");
+    guessInput.setAttribute("id", "guess" + i);
+    guessInput.setAttribute("name", "guess" + i);
+    guessInput.setAttribute("maxlength", "5");
+    guessInput.setAttribute("value", "");
+    guessForm.appendChild(guessInput);
+
+    let guessButton = document.createElement("button");
+    guessButton.setAttribute("type", "button");
+    guessButton.setAttribute("id", "guessButton" + i);
+    guessButton.innerHTML = "Submit";
+    guessForm.appendChild(guessButton);
+
+    let br = document.createElement("span");
+    guessForm.appendChild(br);
+  }
 };
