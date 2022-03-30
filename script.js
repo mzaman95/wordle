@@ -171,6 +171,8 @@ window.onload = () => {
 
     guessButton.onclick = function (event) {
       assessGuess(guessInput.value.toLowerCase());
+      guessInput.setAttribute("disabled", "true");
+      guessButton.setAttribute("disabled", "true");
       event.preventDefault();
     };
 
