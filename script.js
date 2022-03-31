@@ -1,4 +1,6 @@
 window.onload = () => {
+  let winnerText = document.getElementById("winnerText");
+  let errorText = document.getElementById("errorText");
   let newGameBtn = document.getElementById("newGame");
   newGameBtn.onclick = function (event) {
     window.location.reload();
@@ -91,9 +93,12 @@ window.onload = () => {
     request.addEventListener("readystatechange", function () {
       if (this.readyState === this.DONE) {
         if (this.status != 200) {
+          errorText.setAttribute("class", "messageBanner");
+          /*
           alert(
             "The guess you entered is not a word. Please enter a different guess."
           );
+          */
         }
       }
     });
@@ -107,16 +112,12 @@ window.onload = () => {
 
   console.log(word);
 
-  async function assessGuess(guess) {
-    const result = await checkWordExists(guess);
+  function assessGuess(guess) {
+    checkWordExists(guess);
     let guessArray = guess.split("");
     let wordArray = word.split("");
-    //console.log(guess);
-    //console.log(word);
     if (guess.toUpperCase() == word) {
-      console.log("Congratulations! You guessed the word!");
-      let winnerText = document.getElementById("winnerText");
-      winnerText.setAttribute("class", "show");
+      winnerText.setAttribute("class", "messageBanner");
     } else {
       for (let i = 0; i < 5; i++) {
         if (guessArray[i].toUpperCase() == wordArray[i]) {

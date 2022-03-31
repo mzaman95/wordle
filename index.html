@@ -12,14 +12,16 @@
 </head>
 
 <body>
-    <h3 id="winnerText" class="hide">Congratulations! You guessed the correct answer.</h3>
-
     <button id="newGame">New Game</button>
 
     <button id="debugModeButton">Debug Mode: Off</button>
     <p id="correctAnswer"></p>
 
+
     <h1>Wordle</h1>
+    <h3 id="winnerText" class="messageBanner hide">Congratulations! You guessed the correct answer.</h3>
+    <h3 id="errorText" class="messageBanner hide">The guess you entered is not a word. Please enter a different guess.
+    </h3>
     <div id="guessesArray"></div>
 
     <h2>Letter List</h2>

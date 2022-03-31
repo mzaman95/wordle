@@ -46,22 +46,21 @@ input {
     margin-right: 10px;
 }
 
+.messageBanner {
+    padding: 20px;
+    text-align: center;
+    font-size: 25px; 
+    display: block;
+}
+
 #winnerText {
     color: #548d4e;
 }
 
-#winnerText {
-  padding: 40px;
-  text-align: center;
-  background: #548d4e;
-  color: white;
-  font-size: 25px; 
+#errorText {
+  color: #a06110;
 }
 
 .hide {
     display: none;
-}
-
-.show {
-  display: block;
 }
