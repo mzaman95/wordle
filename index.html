@@ -2,36 +2,31 @@
 <html>
 
 <head>
-    <title>Wordle</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>Wordle</title>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <button id="newGame">New Game</button>
+  <button id="newGame">New Game</button>
+  <button id="debug">Debug Mode: Off</button>
+  <p id="correctAnswer"></p>
+  <h1>Wordle</h1>
+  <h2 id="bannerMessage"></h2>
 
-    <button id="debugModeButton">Debug Mode: Off</button>
-    <p id="correctAnswer"></p>
+  <div id="guessesArray"></div>
 
+  <h2>Letter List</h2>
+  <div id="letterList"></div><br /><br />
 
-    <h1>Wordle</h1>
-    <h3 id="winnerText" class="messageBanner hide">Congratulations! You guessed the correct answer.</h3>
-    <h3 id="errorText" class="messageBanner hide">The guess you entered is not a word. Please enter a different guess.
-    </h3>
-    <div id="guessesArray"></div>
-
-    <h2>Letter List</h2>
-    <div id="letterList"></div><br /><br />
-    <h3>Legend</h3>
-    <div class="positionNextTo"><span class="letter default">A</span> - Unused Letter</div>
-    <div class="positionNextTo"><span class="letter used">B</span> - Used Letter</div>
-    <div class="positionNextTo"><span class="letter correctLetter">C</span> - Correct Letter in Wrong Place</div>
-    <div class="positionNextTo"><span class="letter correctPlacement">D</span> - Correct Letter in Correct Place</div>
-
+  <h3>Legend</h3>
+  <p><span class="letter unused">A</span> - Unused Letter</p>
+  <p><span class="letter used">B</span> - Used Letter</p>
+  <p><span class="letter correctLetter">C</span> - Correct Letter in Wrong Place</p>
+  <p><span class="letter correctPlacement">D</span> - Correct Letter in Correct Place</p>
 
 </body>
 

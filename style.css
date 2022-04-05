@@ -1,24 +1,42 @@
 * {
-    background-color: black;
+    background-color: #1d241e;
     color:white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
 }
 
-.positionNextTo {
-  margin: 0;
-  display:inline;
-  float:left;
- }
+button {
+  background-color: rgb(255, 205, 205);
+  color: #1d241e;
+  border-radius: 5px;
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  margin: 10px;
+}
+
+button:hover {
+    background-color: rgb(255, 170, 170);
+}
+
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
 .letter {
     color:white;
     max-width: fit-content;
-    padding: 10px;
+    padding: 5px;
     margin: 5px;
     border-radius: 2px;
 }
 
-.default {
+.unused {
     color:white;
     background-color: #808384;
 }
@@ -38,29 +56,16 @@
     background-color: #548d4e;
 }
 
-form {
-    margin: 20px;
-}
+.positionNextTo {
+  margin: 0;
+  display:inline;
+  float:left;
+ }
 
-input {
-    margin-right: 10px;
-}
+ .lost {
+    color: rgb(223, 143, 132);
+ }
 
-.messageBanner {
-    padding: 20px;
-    text-align: center;
-    font-size: 25px; 
-    display: block;
-}
-
-#winnerText {
-    color: #548d4e;
-}
-
-#errorText {
-  color: #a06110;
-}
-
-.hide {
-    display: none;
-}
+ .won {
+    color: rgb(14, 175, 14);
+ }
