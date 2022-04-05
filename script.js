@@ -182,7 +182,13 @@ window.onload = () => {
     guessForm.appendChild(guessButton);
 
     guessButton.onclick = function (event) {
-      checkWordExists(guessInput.value.toLowerCase());
+      if (guessInput.value.toLowerCase().length == 5) {
+        checkWordExists(guessInput.value.toLowerCase());
+      } else {
+        let message = document.getElementById("guessMessage" + guessNumber);
+        message.innerHTML = "Please input a 5 letter word";
+      }
+
       event.preventDefault();
     };
 
