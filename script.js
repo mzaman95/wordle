@@ -61,7 +61,6 @@ window.onload = () => {
   let word = null;
 
   function getNewWord() {
-    /*
     const request = new XMLHttpRequest();
     request.withCredentials = true;
     request.addEventListener("readystatechange", function () {
@@ -79,9 +78,8 @@ window.onload = () => {
       "3a0a5d475dmshabbcbfe953aa101p12e324jsn22f52d67a70a"
     );
     request.send(data);
-    */
-    // TODO: delete below later:
-    word = "light".toUpperCase();
+    // Testing:
+    // word = "light".toUpperCase();
   }
 
   function checkWordExists(word) {
